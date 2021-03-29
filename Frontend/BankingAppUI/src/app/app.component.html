@@ -1,0 +1,62 @@
+<div class="container">
+
+  <form [formGroup]="AccountForm" (ngSubmit)="this[EventValue]()">
+
+    <h3>Account Table CRUD Operation</h3>
+    <div class="row">
+
+      <table class="table">
+        <tr>
+          <td>Name</td>
+          <td>
+            <input type="text" formControlName="accName">
+            <div *ngIf="submitted && AccountForm.controls.empName.errors" class="text-danger">
+              <div *ngIf="AccountForm.controls.empName.errors.required">Name is required</div>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>Deposit</td>
+          <td><input type="text" formControlName="accInitialDeposit">
+            <div *ngIf="submitted && AccountForm.controls.empContact.errors" class="text-danger">
+              <div *ngIf="AccountForm.controls.accInitialDeposit.errors.required">Initial deposit in GBP is required</div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <button type="submit" class="btn btn-primary">{{EventValue}}</button>
+          </td>
+        </tr>
+
+      </table>
+    </div>
+
+    <div class="row">
+      <table class="table table-striped">
+        <tr>
+          <td>Id</td>
+          <td>Name</td>
+
+          <td>Contact</td>
+          <td>Email</td>
+          <td>Address</td>
+          <td>Edit</td>
+          <td>Delete</td>
+        </tr>
+
+        <tr *ngFor="let d of data">
+          <td>{{d.empId}}</td>
+          <td>{{d.empName}}</td>
+
+          <td>{{d.empContact}}</td>
+          <td>{{d.empEmail}}</td>
+          <td>{{d.empAddress}}</td>
+
+        </tr>
+      </table>
+    </div>
+  </form>
+
+</div>
