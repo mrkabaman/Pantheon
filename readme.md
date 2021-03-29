@@ -4,11 +4,12 @@ Pantheon Banking application mini-project.
 1. .Net Core 5 with C#
 2. Dependency Injection
 2. Swagger page for WebApi- https://localhost:5001/swagger
-3. EFCore - setup with an InMemory database.
-4. Console loggings; In real life, my preferred choice will be Serilog log.
-5. Unit Tests - with NUnit and Moq.
-6. KestrelServerOptions is configured to allow AllowSynchronousIO
-7. Cors is enabled and configure in the Web Api - enabling the UI to call into the Web Api.
+3. There is no requirement for authentication; assume this api is opened to the world.
+4. EFCore - setup with an InMemory database.
+5. Console loggings; In real life, my preferred choice will be Serilog log.
+6. Unit Tests - with NUnit and Moq.
+7. KestrelServerOptions is configured to allow AllowSynchronousIO
+8. Cors is enabled and configure in the Web Api - enabling the UI to call into the Web Api.
 
 In a real life application, some things will be done differently:
 
@@ -21,7 +22,7 @@ In a real life application, some things will be done differently:
 
 The first thing to do is Create an account; an account is created with an initial deposit.  After an account is created, you may use any of the other endpoints in any order.
 
-* POST - /account/create - Creates the account
+* POST - /account/create - Creates the account. You will get back an accountId that can be used in all of the other calls.
 * POST - /account/deposit - Deposit into the account
 * POST - /account/withdraw - Withdraws from the account
 * GET - /account/balance/{id} - returns the current balance of the account.
